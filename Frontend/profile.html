@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <title>Profile - MindSync</title> 
+        <link rel="stylesheet" href="profile.css" /> 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> 
+    </head> 
+    <body> 
+        <!-- Navbar --> 
+        <header class="navbar"> 
+            <a href="index.html" class="brand-name">🧠 MindSync</a>
+            <nav> 
+                <a href="dashboard.html">Dashboard</a> 
+                <a href="profile.html" class="active">Profile</a>
+                <a href="resources.html">Resources</a> 
+                <a href="#" id="logoutBtn">Logout</a> 
+            </nav> 
+        </header> 
+        
+        <!-- Main Profile Container --> 
+        <div class="container"> 
+            <header class="header"> 
+                <h2>Welcome, <span id="profileUserName">User</span></h2> 
+                <p>ID Number: <span id="userId">134HJ45Bfyr</span></p> 
+            </header>
+            <section class="platforms">
+                <h3>Available Platforms</h3>
+                <div class="platform-card">
+                    <div class="icon">📱</div>
+                    <p>Android</p>
+                </div>
+            </section>
+           
+             <section class="setting-group">
+                <h4>App Language</h4>
+                <p class="subtext">You can change your default app interface language at any time.</p>
+                <div class="setting-card">
+                    <span>🌐 English</span>
+                    <span class="arrow">➔</span>
+                </div>
+            </section>
+            
+            <section class="setting-group">
+                <h4>User Name</h4>
+                <div class="setting-card">
+                    <span id="profileFullName">👤 User Name</span>
+                    <span class="arrow">➔</span>
+                </div>
+            </section>
+           
+             <section class="setting-group">
+                <h4>Setting</h4>
+                <div class="setting-card">
+                    <span>🔊 Voice</span>
+                    <span class="arrow">➔</span>
+                </div>
+            </section>
+            
+            <section class="setting-group">
+                <h4>Theme</h4>
+                <div class="setting-card">
+                    <span>🌙 Dark</span>
+                    <span class="arrow">➔</span>
+                </div>
+            </section>
+        </div> 
+        
+        <!-- Footer --> 
+        <footer> 
+            <p>&copy; 2025 MindSync. All rights reserved.</p> 
+            <p>Empowering Mental Wellness with AI.</p> 
+        </footer> 
+        
+        <!-- Include the authentication script -->
+        <script src="auth.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Check if user is logged in
+                if (!checkLoginStatus()) {
+                    // Redirect to login page if not logged in
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                // Get current user info
+                const currentUser = JSON.parse(sessionStorage.getItem('mindsync_current_user') || '{}');
+                
+                // Display user name
+                document.getElementById('profileUserName').textContent = currentUser.name || 'User';
+                document.getElementById('profileFullName').textContent = '👤 ' + (currentUser.name || 'User Name');
+                
+                // Generate a consistent user ID based on email (for demo purposes)
+                const userId = currentUser.email ? 
+                    btoa(currentUser.email).substring(0, 10).toUpperCase() : 
+                    '134HJ45Bfyr';
+                document.getElementById('userId').textContent = userId;
+                
+                // Add logout functionality
+                document.getElementById('logoutBtn').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    logoutUser();
+                });
+            });
+        </script>
+    </body> 
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - MindSync</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="brand-name">&#x1F9E0; MindSync</a>
+  </header>
+
+  <!-- Main Signup Content -->
+  <main class="main-content">
+    <div class="signup-container">
+      <h2> &#x1F9E0; Create Your MindSync Account</h2>
+
+      <form id="signupForm">
+        <input type="text" id="fullName" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email Address" required />
+        <input type="password" id="password" placeholder="Create Password" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+        <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+      <button class="google-btn">
+        <img src="google-logo-9808.png" alt="Google Logo" class="google-icon" />
+        Continue with Google
+      </button>
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MindSync. All rights reserved.</p>
+    <p>Empowering Mental Wellness with AI.</p>
+  </footer>
+
+  <!-- Include the authentication script -->
+  <script src="auth.js"></script>
+  <script>
+    // JavaScript for enhanced signup functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const signupForm = document.getElementById('signupForm');
+      
+      // Add event listener to the form
+      signupForm.addEventListener('submit', registerUser);
+      
+      // Redirect to dashboard if already logged in
+      if (checkLoginStatus()) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+  </script>
+</body>
+</html>

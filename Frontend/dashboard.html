@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>MindSync Dashboard</title> 
+    <link rel="stylesheet" href="dashboard.css" />
+</head> 
+<body> 
+    <!-- Navbar --> 
+    <header class="navbar"> 
+        <a href="index.html" class="brand-name">&#x1F9E0; MindSync</a> 
+        <nav> 
+            <a href="dashboard.html" class="active">Dashboard</a> 
+            <a href="profile.html">Profile</a>
+            <a href="resources.html">Resources</a> 
+            <a href="#" id="logoutBtn">Logout</a> 
+        </nav> 
+    </header> 
+    
+    <!-- Main Content --> 
+    <main class="main-content"> 
+        <div class="welcome-section"> 
+            <h1>Welcome back, <span id="userName">User</span> 👋</h1> 
+            <p>Your mental wellness journey starts here.</p> 
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h2>🧘 Mood Tracker</h2>
+                <p>Record how you feel daily and reflect on your emotions.</p>
+                <button id="trackMoodBtn">Track Mood</button>
+            </div>
+         
+             <div class="card">
+                <h2>💬 Chat with MindSync</h2>
+                <p>Start a conversation with your AI wellness companion.</p>
+                <button id="startChatBtn">Start Chat</button>
+          </div>
+          
+              <div class="card">
+                <h2>📈 Insights</h2>
+                <p>Analyze your emotional trends and self-awareness over time.</p>
+                <button id="viewInsightsBtn">View Insights</button>
+            </div>
+        </div>
+        
+        <!-- Coming Soon Popup -->
+        <div id="comingSoonPopup" class="popup">
+            <div class="popup-content">
+                <span class="close-popup">&times;</span>
+                <h2>🚧 Coming Soon!</h2>
+                <p>We're working hard to bring this feature to you. Please check back later!</p>
+            </div>
+        </div>
+    </main> 
+    
+    <!-- Footer --> 
+    <footer> 
+        <p>&copy; 2025 MindSync. All rights reserved.</p> 
+        <p>Stay grounded. Stay supported. 💚</p> 
+    </footer>
+    
+    <!-- Include the authentication script -->
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            if (!checkLoginStatus()) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Get current user info
+            const currentUser = JSON.parse(sessionStorage.getItem('mindsync_current_user') || '{}');
+            
+            // Display user name
+            document.getElementById('userName').textContent = currentUser.name || 'User';
+            
+            // Add logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function(event) {
+                event.preventDefault();
+                logoutUser();
+            });
+            
+            // Get popup elements
+            const popup = document.getElementById('comingSoonPopup');
+            const closePopup = document.querySelector('.close-popup');
+            
+            // Function to show popup
+            function showComingSoonPopup() {
+                popup.style.display = 'flex';
+            }
+            
+            // Function to hide popup
+            function hidePopup() {
+                popup.style.display = 'none';
+            }
+            
+            // Add event listeners for buttons
+            document.getElementById('trackMoodBtn').addEventListener('click', showComingSoonPopup);
+            document.getElementById('viewInsightsBtn').addEventListener('click', showComingSoonPopup);
+            
+            // Redirect to chat page
+            document.getElementById('startChatBtn').addEventListener('click', function() {
+                window.location.href = 'chat.html';
+            });
+            
+            // Close popup when clicking the X
+            closePopup.addEventListener('click', hidePopup);
+            
+            // Close popup when clicking outside the popup content
+            window.addEventListener('click', function(event) {
+                if (event.target === popup) {
+                    hidePopup();
+                }
+            });
+        });
+    </script>
+</body> 
+</html>

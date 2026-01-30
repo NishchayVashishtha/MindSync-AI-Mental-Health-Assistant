@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - MindSync</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="brand-name">&#x1F9E0; MindSync</a>
+  </header>
+  
+
+  <!-- Main Login Content -->
+  <main class="main-content">
+    <div class="login-container">
+      <h2>🔐 Welcome Back to MindSync</h2>
+
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email Address" required />
+        <input type="password" id="loginPassword" placeholder="Enter Password" required />
+        <button type="submit">Login</button>
+        <p class="signup-link">Don't have an account? <a href="signup.html">Sign up here</a></p>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+      <button class="google-btn">
+        <img src="google-logo-9808.png" alt="Google Logo" class="google-icon" />
+        Continue with Google
+      </button>
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MindSync. All rights reserved.</p>
+    <p>Empowering Mental Wellness with AI.</p>
+  </footer>
+
+  <!-- Include the authentication script -->
+  <script src="auth.js"></script>
+  <script>
+    // JavaScript for enhanced login functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('loginForm');
+      
+      // Add event listener to the form
+      loginForm.addEventListener('submit', loginUser);
+      
+      // Redirect to dashboard if already logged in
+      if (checkLoginStatus()) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+  </script>
+</body>
+</html>

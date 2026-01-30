@@ -1,0 +1,141 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('Image1.avif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 50, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .brand-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  
+  .navbar nav a {
+    margin-left: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .navbar nav a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Main Container */
+  .container {
+    max-width: 800px;
+    margin: 140px auto 60px;
+    padding: 2rem;
+    background-color: rgba(0, 0, 50, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Header */
+  .header h2 {
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 0.3rem;
+  }
+  
+  .header p {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Platform Section */
+  .platforms h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+  }
+  
+  .platform-card {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .platform-card .icon {
+    font-size: 1.5rem;
+  }
+  
+  /* Settings Section */
+  .setting-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .setting-group h4 {
+    font-size: 1.1rem;
+    color: #ffcc00;
+    margin-bottom: 0.3rem;
+  }
+  
+  .subtext {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+  }
+  
+  .setting-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .setting-card:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 50, 0.85);
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: auto;
+  }
+  

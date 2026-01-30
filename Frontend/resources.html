@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - MindSync</title>
+  <link rel="stylesheet" href="resources.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html" class="brand-name">&#x1F9E0; MindSync</a>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="resources.html" class="active">Resources</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1>Helpful Resources</h1>
+    <p class="intro-text">
+      Explore curated tools, articles, videos, and guides for mental wellness and emotional support.
+    </p>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h3>🧘 Guided Meditation</h3>
+        <p>10-minute calming session to reduce anxiety and improve focus.</p>
+        <a href="https://www.youtube.com/watch?v=inpok4MKVLM" target="_blank">Watch Now</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>📚 Mental Health 101</h3>
+        <p>A beginner’s guide to understanding emotional well-being and common challenges.</p>
+        <a href="https://www.mind.org.uk/information-support/" target="_blank">Read More</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>🎧 Relaxing Music</h3>
+        <p>Curated Spotify playlists to help you unwind and sleep better.</p>
+        <a href="https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO" target="_blank">Listen</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>📓 Journal Prompts</h3>
+        <p>Daily reflection prompts to help track your mental health journey.</p>
+        <a href="#">Download PDF</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>💡 Breathing Exercises</h3>
+        <p>Simple breathing techniques for reducing panic and increasing clarity.</p>
+        <a href="https://www.healthline.com/health/breathing-exercise" target="_blank">Try Now</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>📱 Apps for Mental Wellness</h3>
+        <p>Top mobile apps for guided therapy, mood tracking, and mindfulness.</p>
+        <a href="#">View List</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MindSync. All rights reserved.</p>
+    <p>Empowering Mental Wellness with AI.</p>
+  </footer>
+
+  <!-- Include the authentication script -->
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if user is logged in
+      if (!checkLoginStatus()) {
+        // Redirect to login page if not logged in
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      // Add logout functionality
+      document.getElementById('logoutBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        logoutUser();
+      });
+    });
+  </script>
+</body>
+
+</html>
